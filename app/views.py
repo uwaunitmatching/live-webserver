@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of views.
 """
 
@@ -16,6 +16,19 @@ def home(request):
         context_instance = RequestContext(request,
         {
             'title':'Home Page',
+            'year':datetime.now().year,
+        })
+    )
+
+def results(request):
+    """Renders the results page."""
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/results.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Results',
             'year':datetime.now().year,
         })
     )
