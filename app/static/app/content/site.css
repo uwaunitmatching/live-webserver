@@ -247,6 +247,7 @@ span {
 /* Image Opacity */
 .grid img {
     opacity: .7;
+
 }
 .grid img:hover {
     opacity: 1;
