@@ -1,4 +1,4 @@
-"""
+﻿"""
 Django settings for DjangoWebProject project.
 """
 
@@ -9,7 +9,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = (
-    'localhost',
+    'localhost', 
 )
 
 ADMINS = (
