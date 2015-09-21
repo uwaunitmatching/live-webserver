@@ -1,62 +1,16 @@
-﻿"""
-Definition of views.
-"""
+﻿from django.shortcuts import render, render_to_response, RequestContext
+from django.http import HttpRequest, HttpResponse
+from django.template import Context, loader
 
-from django.shortcuts import render
-from django.http import HttpRequest
-from django.template import RequestContext
-from datetime import datetime
-
-def home(request):
-    """Renders the home page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/index.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Home Page',
-            'year':datetime.now().year,
-        })
-    )
+def index(request):
+    return render_to_response('index.html', locals(), context_instance = RequestContext(request))
 
 def results(request):
-    """Renders the results page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/results.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Results',
-            'year':datetime.now().year,
-        })
-    )
+    return render_to_response('results.html', locals(), context_instance = RequestContext(request))
 
-def contact(request):
-    """Renders the contact page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/contact.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Contact',
-            'message':'Your contact page.',
-            'year':datetime.now().year,
-        })
-    )
+def base(request):
+    return render_to_response('base.html', locals(), context_instance = RequestContext(request))
 
-def about(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/about.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'About',
-            'message':'Your application description page.',
-            'year':datetime.now().year,
-        })
-    )
+
+def search(request):
+    return render_to_response('search.html', locals(), context_instance = RequestContext(request))

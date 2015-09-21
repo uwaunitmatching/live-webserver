@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+{% block content %}
+<div id="hello">
+  <div class="container">
+    <div class="row">
+    	<div class="col-md-6 nopadding">
+				<div class="form-group">
+				  <input type="text" class="form-control form-home" placeholder="What University are you at?">
+				</div>
+			</div>  		
+    	<div class="col-md-3 nopadding">
+    		<div class="form-group">
+				  <input type="text" class="form-control form-home" placeholder="What unit code?">
+				</div>
+			 </div>
+          <div class="col-md-3 nopadding">
+            <button type="button" class="btn btn-primary btn-block button-search">Search</button>
+          </div>
+			</div> <!-- row -->
+	</div><!-- hello -->
+</div>
+{% endblock %}

@@ -3,8 +3,14 @@ Definition of urls for DjangoWebProject.
 """
 
 from datetime import datetime
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, include, url
+from DjangoWebProject import settings
+from django.contrib import admin
+from app.views import index, results, base, search
 from app.forms import BootstrapAuthenticationForm
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
+
 
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
@@ -13,10 +19,10 @@ from app.forms import BootstrapAuthenticationForm
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'app.views.home', name='home'),
-    url(r'^contact$', 'app.views.contact', name='contact'),
-    url(r'^about', 'app.views.about', name='about'),
-	url(r'^results', 'app.views.results', name='results'),
+    url(r'^admin', include(admin.site.urls)),
+    url(r'^index$', index),
+    url(r'^results$', results),
+    url(r'^search$', search),
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {
@@ -36,10 +42,7 @@ urlpatterns = patterns('',
         },
         name='logout'),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
 
-)
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += staticfiles_urlpatterns()
