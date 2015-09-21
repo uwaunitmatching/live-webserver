@@ -250,9 +250,10 @@ li .active {
 	padding-bottom:30px;
 }
 
-#sidebar  a{
+#sidebar a{
 	color:black;
 	font-weight:350;
+	text-align:right;
 }
 
 
