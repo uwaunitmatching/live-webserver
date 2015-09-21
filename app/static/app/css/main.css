@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Links */
 a {
-    color: #7496CF;
+    color: #1E4686;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -248,6 +248,11 @@ li .active {
 
 .pagination {
 	padding-bottom:30px;
+}
+
+#sidebar  a{
+	color:black;
+	font-weight:350;
 }
 
 

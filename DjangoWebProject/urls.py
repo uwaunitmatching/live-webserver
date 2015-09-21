@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^index$', index),
     url(r'^results$', results),
     url(r'^search$', search),
-    url(r'^login/$',
+    url(r'^login$',
         'django.contrib.auth.views.login',
         {
             'template_name': 'app/login.html',
