@@ -1,8 +1,8 @@
-{% extends "search.html" %}
+{% block result %}
 
-
-{% block results %}    
     {% load static %}
+      <!-- right hand side -->      
+        <!-- panel 2 -->
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">{{university_name}}
@@ -18,5 +18,5 @@
             <p>{{ unit_desc }}<a href="#">Read more</a></p>
           </div>
         </div>
+{% endblock %}
 
-  {% endblock %}
