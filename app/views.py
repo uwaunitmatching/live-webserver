@@ -4,7 +4,7 @@ from django.template import Context, loader, RequestContext, Library, Node, Temp
 from app.models import Units
 import sys
 
-def index(request):
+def my_homepage_view(request):
     return render_to_response('index.html', locals(), context_instance = RequestContext(request))
 
 # @register.filter(name='get_range') 
@@ -16,7 +16,7 @@ def index(request):
 def results(request):
     t = loader.get_template('results.html')
     print >> sys.stderr, repr(Units.objects.filter(unit_code__contains="CITS"))
-    
+    # display = Units.objects.all()[:20]
 
     c = Context({
             # 'get_range' : get_range,
