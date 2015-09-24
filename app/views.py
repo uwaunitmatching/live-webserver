@@ -17,7 +17,6 @@ def results(request):
     t = loader.get_template('results.html')
     citsUnits = Units.objects.filter(unit_code__contains="CITS")
 
-
     queryset = Units.objects.all()
     # print([p.unit_name for p in queryset]) # Evaluate the query set.
     # print([p.unit_code for p in queryset]) #cached the query, reuse
