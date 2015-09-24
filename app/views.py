@@ -1,7 +1,7 @@
 ﻿from django.shortcuts import render, render_to_response, RequestContext
 from django.http import HttpRequest, HttpResponse
 from django.template import Context, loader, RequestContext, Library, Node, TemplateSyntaxError
-from app.models import Units
+from app.models import Units, University, Keywords
 import sys
 
 def my_homepage_view(request):
@@ -15,16 +15,22 @@ def my_homepage_view(request):
 
 def results(request):
     t = loader.get_template('results.html')
-    print >> sys.stderr, repr(Units.objects.filter(unit_code__contains="CITS"))
-    # display = Units.objects.all()[:20]
+    citsUnits = Units.objects.filter(unit_code__contains="CITS")
 
-    c = Context({
-            # 'get_range' : get_range,
-            'university_name': 'University of Western Australia',
-            'unit_code' : 'CITS3200',
-            'unit_name' : 'Professional Computing',
-            'unit_desc' : 'Description of Professional computing.'
-        })
+
+    queryset = Units.objects.all()
+    # print([p.unit_name for p in queryset]) # Evaluate the query set.
+    # print([p.unit_code for p in queryset]) #cached the query, reuse
+
+
+    for unit in citsUnits:
+
+        c = Context({
+                # 'get_range' : get_range,
+                'unit_name': unit.unit_name,
+                'unit_desc': unit.unit_desc,
+            })
+
     return render(request, "results.html", c)
 
 
