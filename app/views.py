@@ -41,3 +41,6 @@ def base(request):
 def search(request):
     return render_to_response('search.html', locals(), context_instance = RequestContext(request))
 
+def login(request):
+    return render_to_response('login.html', locals(), context_instance = RequestContext(request))
+
