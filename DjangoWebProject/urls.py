@@ -14,9 +14,9 @@ from app.models import Units, University, Keywords
 
 
 # Uncomment the next lines to enable the admin:
-# from django.conf.urls import include
-# from django.contrib import admin
-# admin.autodiscover()
+from django.conf.urls import include
+from django.contrib import admin
+admin.autodiscover()
 
 
 urlpatterns = patterns('',
@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^$', my_homepage_view),
     url(r'^admin', include(admin.site.urls)),
     url(r'^results$', results),
+    url(r'^index$', my_homepage_view),
     url(r'^search$', search),
     url(r'^login$',
         'django.contrib.auth.views.login',
