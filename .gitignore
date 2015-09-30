@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 
+# ignore settings file
+settings.py
+
 # PTVS analysis
 .ptvs/
 
