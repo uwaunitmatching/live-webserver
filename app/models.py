@@ -1,11 +1,10 @@
-"""
+﻿"""
 Definition of models.
 """
 
 from django.db import models
 
 # Create your models here.
-<<<<<<< HEAD
 
 
 class University(models.Model):
@@ -38,5 +37,3 @@ class Keywords(models.Model):
 	keyword = models.CharField(max_length=32)
 	def __unicode__(self):
 		return self.keyword
-=======
->>>>>>> parent of 5aef1dc... Created models classes
