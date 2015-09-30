@@ -256,18 +256,6 @@ li .active {
 	text-align:right;
 }
 
-#textmiddle {
-	text-align:center;
-}
-
-#textleft {
-	float:left;
-}
-
-#textright {
-	float:right;
-}
-
 
 /* Image Opacity */
 .grid img {

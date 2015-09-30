@@ -3,13 +3,14 @@ Definition of urls for DjangoWebProject.
 """
 
 from datetime import datetime
-from django.conf.urls import patterns, include, url
+from django.conf.urls import *
 from DjangoWebProject import settings
 from django.contrib import admin
-from app.views import index, results, base, search
+from app.views import results, base, search, my_homepage_view
 from app.forms import BootstrapAuthenticationForm
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
+from app.models import Units, University, Keywords
 
 
 # Uncomment the next lines to enable the admin:
@@ -17,10 +18,11 @@ from django.conf.urls.static import static
 # from django.contrib import admin
 # admin.autodiscover()
 
+
 urlpatterns = patterns('',
     # Examples:
+    url(r'^$', my_homepage_view),
     url(r'^admin', include(admin.site.urls)),
-    url(r'^index$', index),
     url(r'^results$', results),
     url(r'^search$', search),
     url(r'^login$',

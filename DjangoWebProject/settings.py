@@ -21,11 +21,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'unitsdatabase',
-        'USER': 'b42b6658560e49',
-        'PASSWORD': '383daa65',
-        'HOST': 'ap-cdbr-azure-southeast-a.cloudapp.net',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': path.join(PROJECT_ROOT, 'db.sqlite3'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
