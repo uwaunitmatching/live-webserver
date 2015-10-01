@@ -22,9 +22,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', my_homepage_view),
-    url(r'^admin$', include(admin.site.urls)),
-    url(r'^login$', Redirect('/admin'),
-    url(r'^results$', results),
+    url(r'^admin', include(admin.site.urls)),
+    url(r'^results', results),
     url(r'^index$', my_homepage_view),
     url(r'^search$', search),
 

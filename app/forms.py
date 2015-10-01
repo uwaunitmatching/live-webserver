@@ -1,4 +1,4 @@
-"""
+﻿"""
 Definition of forms.
 """
 
@@ -16,3 +16,7 @@ class BootstrapAuthenticationForm(AuthenticationForm):
                                widget=forms.PasswordInput({
                                    'class': 'form-control',
                                    'placeholder':'Password'}))
+
+class searchForm(forms.Form):
+    university = forms.CharField(label='Your current University', max_length=100)
+    unit = forms.CharField(label='Unit you would like to match', max_length=100)
