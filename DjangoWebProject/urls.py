@@ -6,7 +6,7 @@ from datetime import datetime
 from django.conf.urls import *
 from DjangoWebProject import settings
 from django.contrib import admin
-from app.views import results, base, search, my_homepage_view
+from app.views import Results, base, search, my_homepage_view
 from app.forms import BootstrapAuthenticationForm
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
@@ -23,9 +23,13 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', my_homepage_view),
     url(r'^admin', include(admin.site.urls)),
-    url(r'^results', results),
-    url(r'^index$', my_homepage_view),
-    url(r'^search$', search),
+    url(r'^index', my_homepage_view),
+    url(r'^search', search),
+
+    url(r'^results', Results.as_view()),
+
+
+    #url(r'^results/(?P<pk>\d+)/', 'unit_detail', name='unit_detail'),
 
     #url(r'^login$',
     #    'django.contrib.auth.views.login',

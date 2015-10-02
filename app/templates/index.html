@@ -6,19 +6,15 @@
   <div class="container">
     <div class="row">
     	<div class="col-md-6 nopadding">
-				<div class="form-group">
-				  <input type="text" class="form-control form-home" placeholder="What University are you at?">
-				</div>
-			</div>  		
-    	<div class="col-md-3 nopadding">
-    		<div class="form-group">
-				  <input type="text" class="form-control form-home" placeholder="What unit code?">
-				</div>
-			 </div>
-          <div class="col-md-3 nopadding">
-            <a href="results"><button type="button" class="btn btn-primary btn-block button-search">Search</button></a>
-          </div>
-			</div> <!-- row -->
+            <div class="form-group">
+                <form action="/results/" method="get">
+                    {{ form }}
+                    <input type="submit" class="btn btn-primary btn-block button-search" value="Search">
+                    <!--<a href="results"><button type="submit" class="btn btn-primary btn-block button-search">Search</button></a>-->
+                </form>
+            </div>
+        </div>
+            </div> <!-- row -->
 	</div><!-- hello -->
 </div>
 {% endblock %}

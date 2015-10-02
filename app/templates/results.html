@@ -1,21 +1,60 @@
-{% extends "search.html" %}
+{% extends "base.html" %}
 
-{% block results %}    
-    {% load static %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">{{ university_name }}
-            <img align="right" src="{% static "app/img/aust.png" %}">
-            </h3>
+{% load static %}
 
-          </div>
+{% block content %}
 
-          <div class="panel-body">
-            {{ unit_name }}
-            <h2><span style="color:green">0%</span>
-            Similarity</h2>
-            <p>{{ unit_desc|truncatewords:"80"}}<a href="">Read more</a></p>
-          </div>
+<div id="searchContainer" class="container">
+    <!-- left hand side -->
+    <div class="col-md-3">
+        <div style="text-align:center;">
+            <p><b>Advanced Filtering Options</b></p>
+        </div>
+        <ul id="sidebar" class="list-group">
+            <a href="#"><li class="list-group-item">Languages<span class="caret"></span></li></a>
+            <a href="#"><li class="list-group-item">Keywords<span class="caret"></span></li></a>
+            <a href="#"><li class="list-group-item">University<span class="caret"></span></li></a>
+            <a href="#"><li class="list-group-item">Region<span class="caret"></span></li></a>
+            <a href="#"><li class="list-group-item">Times Offered<span class="caret"></span></li></a>
+        </ul>
+        <div id="inline-filter">
+            <p>
+                <a href="search">New Search</a>
+                | <a href="#">Clear Filter</a>
+            </p>
         </div>
 
+
+    </div> <!-- col3 -->
+
+    <div class="col-md-9">
+        <h1>This is the results page </h1>
+        <p>Size of results set is: {{ object_list.count }}</p>
+
+        {% for unit in units %}
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    {{ unit.unit_code }}
+                    <img align="right" src="{% static 'app/img/aust.png'' %}">
+                </h3>
+            </div>
+
+            <div class="panel-body">
+                <h2>{{unit.unit_name}}</h2>
+
+                <h3>
+                    <span style="color:green">0%</span>
+                    Similarity
+                </h3>
+                <p>{{ unit.unit_desc|truncatewords:"80"}}<a href="">Read more</a></p>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div> <!-- col-md-9 -->
+</div> <!-- container -->
 {% endblock %}
+
