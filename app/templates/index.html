@@ -3,18 +3,31 @@
 {% block title %}Search{% endblock %}
 {% block content %}
 <div id="hello">
-  <div class="container">
-    <div class="row">
-    	<div class="col-md-6 nopadding">
-            <div class="form-group">
-                <form action="/results/" method="get">
-                    {{ form }}
-                    <input type="submit" class="btn btn-primary btn-block button-search" value="Search">
-                    <!--<a href="results"><button type="submit" class="btn btn-primary btn-block button-search">Search</button></a>-->
-                </form>
-            </div>
-        </div>
-            </div> <!-- row -->
-	</div><!-- hello -->
-</div>
+    <div class="container">
+
+        <div class="row">
+            <form action="/results/" method="get">
+
+                <div class="col-sm-4 col-sm-offset-2 centered">
+                    <div class="form-group">
+                        <label for="id_university">Your current University:</label>
+                        <input id="id_university" maxlength="100" name="university" type="text" class="form-control" placeholder="'University of Western Australia'">
+                    </div>
+                </div>
+                <div class="col-sm-4 centered">
+                    <div class="form-group">
+                        <label for="id_unit">Unit you would like to match:</label>
+                        <input id="id_unit" maxlength="100" name="unit" type="text" class="form-control" placeholder="'CITS3200'">
+                    </div>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2 centered">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block button-search" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div> <!-- row -->
+
+    </div> <!-- container -->
+</div><!-- hello -->
 {% endblock %}
