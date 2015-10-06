@@ -17,9 +17,12 @@ class Results(ListView):
     context_object_name = 'units'
     paginate_by = 10
 
+
     def get_queryset(self):
+
         unitTerm = self.request.GET.get('unit', '')
         queryset = Units.objects.filter(unit_desc__icontains='computer')
+        
         return queryset
 
     def get_context_data(self, **kwargs):

@@ -29,13 +29,15 @@
     </div> <!-- col3 -->
 
     <div class="col-md-9">
+        {# Remember to comment this out later#}
         <h3>{{ object_list.count }} {{university}}  {{unit}}</h3>
+        
         {% for unit in units %}
 
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    {{ unit.unit_code }}
+                    {{uni.uni_name}}UNIVERSITY_NAME
                     <img align="right" src="{% static 'app/img/aust.png'' %}">
                 </h3>
             </div>
@@ -44,10 +46,10 @@
                 <h2>{{unit.unit_name}}</h2>
 
                 <h3>
-                    <span style="color:green">0%</span>
+                    <span style="color:green">100%</span>
                     Similarity
                 </h3>
-                <p>{{ unit.unit_desc|truncatewords:"80"}}<a href="">Read more</a></p>
+                <p>{{ unit.unit_desc|truncatewords:"80"}}<a href="{{ unit.unit_link }}">Read more</a></p>
             </div>
         </div>
 
