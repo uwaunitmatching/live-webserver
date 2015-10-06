@@ -26,15 +26,14 @@ class Units(models.Model):
     unit_desc = models.CharField(max_length=5000, null=True)
     unit_text = models.CharField(max_length=400, null=True)
     ISBN = models.IntegerField(null=True)
-    FreeTags = models.CharField(max_length=5000, null=True)
+    # keywords = models.CharField(max_length=5000, null=True)
     Positive = models.CharField(max_length=5000, null=True)
     unit_link = models.URLField(max_length=2084, null=True)
-    keywords = models.CharField(max_length=5000, null=True)
     def __unicode__(self):
         return self.unit_name
 
 class Keywords(models.Model):
 	unit_key = models.IntegerField()
-	keyword = models.CharField(max_length=32)
+	keyword = models.CharField(max_length=5000)
 	def __unicode__(self):
 		return self.keyword

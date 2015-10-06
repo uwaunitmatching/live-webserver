@@ -22,6 +22,11 @@ def search(keywords, database_keywords):
 	print('Number of keywords %s' % num_keywords)
 	print('count: %s' % count)
 
+	
+	similarity = (0.500 + ( (count*1.0) / (num_keywords * 1.0) * 0.50 )) * 100.0
+
+	print('similarity = %.2f' % similarity)
+
 
 
 search(searching_keywords, database_keywords)

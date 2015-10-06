@@ -11,10 +11,6 @@ def my_homepage_view(request):
     context = {'form' : searchForm}
     return render(request, 'index.html', context)
 
-# @register.filter(name='get_range') 
-# def get_range(value):
-#     print value
-#     return range(value)
 
 class Results(ListView):  
     template_name = 'results.html' 
@@ -23,8 +19,7 @@ class Results(ListView):
 
     def get_queryset(self):
         unitTerm = self.request.GET.get('unit', '')
-        queryset = Units.objects.filter(unit_code__icontains=unitTerm)
-        print queryset
+        queryset = Units.objects.filter(unit_desc__icontains='computer')
         return queryset
 
     def get_context_data(self, **kwargs):
