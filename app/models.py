@@ -29,6 +29,7 @@ class Units(models.Model):
     FreeTags = models.CharField(max_length=5000, null=True)
     Positive = models.CharField(max_length=5000, null=True)
     unit_link = models.URLField(max_length=2084, null=True)
+    keywords = models.CharField(max_length=5000, null=True)
     def __unicode__(self):
         return self.unit_name
 

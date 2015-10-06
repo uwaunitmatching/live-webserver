@@ -24,6 +24,7 @@ class Results(ListView):
     def get_queryset(self):
         unitTerm = self.request.GET.get('unit', '')
         queryset = Units.objects.filter(unit_code__icontains=unitTerm)
+        print queryset
         return queryset
 
     def get_context_data(self, **kwargs):
