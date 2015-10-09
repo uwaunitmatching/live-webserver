@@ -21,8 +21,12 @@ class Results(ListView):
     def get_queryset(self):
 
         unitTerm = self.request.GET.get('unit', '')
+        # unitKeywords = Units.objects.filter('')
+
+        keyword_list = []
+
         queryset = Units.objects.filter(unit_desc__icontains='computer')
-        
+        # queryset.orderBy('count')
         return queryset
 
     def get_context_data(self, **kwargs):

@@ -8,7 +8,7 @@ from django.db import models
 
 
 class University(models.Model):
-	uni_id = models.primary_key=True
+	id = models.primary_key=True
 	uni_name = models.CharField(max_length=255)
 	city = models.CharField(max_length=25, null=True)
 	country = models.CharField(max_length=25, null=True)
@@ -20,13 +20,13 @@ class University(models.Model):
 
 class Units(models.Model):
     unit_key = models.primary_key=True
-    uni_id = models.IntegerField()
+    uni_id = models.ForeignKey('app.University')
     unit_code = models.CharField(max_length=20, null=True)
     unit_name = models.CharField(max_length=300, null=True)
     unit_desc = models.CharField(max_length=5000, null=True)
     unit_text = models.CharField(max_length=400, null=True)
     ISBN = models.IntegerField(null=True)
-    # keywords = models.CharField(max_length=5000, null=True)
+    keywords = models.CharField(max_length=5000, null=True)
     Positive = models.CharField(max_length=5000, null=True)
     unit_link = models.URLField(max_length=2084, null=True)
     def __unicode__(self):
