@@ -23,8 +23,6 @@ class Results(ListView):
         unitTerm = self.request.GET.get('unit', '')
         # unitKeywords = Units.objects.filter('')
 
-        keyword_list = []
-
         queryset = Units.objects.filter(unit_desc__icontains='computer')
         # queryset.orderBy('count')
         return queryset
@@ -34,6 +32,7 @@ class Results(ListView):
         context['unit'] = self.request.GET.get('unit', '') 
         context['university'] = self.request.GET.get('university', '') 
         context['request'] = self.request
+        # context['keywords'] = Units.objects.filter()
         return context
 
 def base(request):
