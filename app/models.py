@@ -19,8 +19,8 @@ class University(models.Model):
 		return self.uni_name
 
 class Units(models.Model):
-    unit_key = models.primary_key=True
-    uni = models.ForeignKey('app.University')
+    id = models.primary_key=True
+    uni_id = models.ForeignKey('app.University')
     unit_code = models.CharField(max_length=20, null=True)
     unit_name = models.CharField(max_length=300, null=True)
     unit_desc = models.CharField(max_length=5000, null=True)
