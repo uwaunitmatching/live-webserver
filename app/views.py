@@ -23,14 +23,13 @@ class Results(ListView):
         unitTerm = self.request.GET.get('unit', '')
         # unitKeywords = Units.objects.filter('')
 
-        queryset = Units.objects.filter(unit_code__icontains=unitTerm)
+        queryset = Units.objects.filter(unit_name__icontains=unitTerm)
         # queryset.orderBy('count')
 
 
-        uni = Units.objects.select_related('uni_id')
-        uni.values('uni_id', 'unit_name')
-        
-        print(repr(uni))
+        queryset.select_related('uni_id__uni_name')
+        print(queryset.values('uni_id__uni_name'))
+
         print(queryset)
 
         # for p in University.objects.raw("""
