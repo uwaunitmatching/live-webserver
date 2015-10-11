@@ -20,7 +20,7 @@ class University(models.Model):
 
 class Units(models.Model):
     id = models.primary_key=True
-    uni_id = models.ForeignKey('app.University')
+    uni_id = models.ForeignKey('app.University', db_column='uni_id')
     unit_code = models.CharField(max_length=20, null=True)
     unit_name = models.CharField(max_length=300, null=True)
     unit_desc = models.CharField(max_length=5000, null=True)
