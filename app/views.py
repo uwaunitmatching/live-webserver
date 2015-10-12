@@ -1,5 +1,5 @@
 ﻿from django.shortcuts import render, render_to_response, RequestContext
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, Http404
 from django.template import Context, loader, RequestContext, Library, Node, TemplateSyntaxError
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -23,22 +23,25 @@ class Results(ListView):
     def get_related_units(self):
         unitTerm = self.request.GET.get('unit', '')
         univ_input = self.request.GET.get('university', '')
-        univ = University.objects.extra(where=["%s LIKE uni_name"], params=[univ_input])
-        selected_uni_id = univ[0].id
-        print(selected_uni_id)
-        selected_uni_name = univ[0].uni_name
-        print(selected_uni_name)
 
-        choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
-        if choose[0].unit_name and choose[0].keywords:
+        try:
+            univ = University.objects.extra(where=["%s LIKE uni_name"], params=[univ_input])
+            selected_uni_id = univ[0].id
+            print(selected_uni_id)
+            selected_uni_name = univ[0].uni_name
+            print(selected_uni_name)
+        except IndexError:
+            raise Http404("Sorry! University Not found. Please refine your search")
+
+        
+        try:
+            choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
             selected_unit_name = choose[0].unit_name
             global selected_keys
             selected_keys = choose[0].keywords
             unit_found = True
-        else:
-            selected_unit_name = "Sorry! Could not find your Unit"
-            selected_keys = "Sorry! Keywords could not be found, Please refine your search"
-            unit_found = None
+        except IndexError:
+            raise Http404("Sorry! Your unit could not be found. Please refine your search")
 
         print(selected_unit_name)
         return choose
@@ -46,17 +49,52 @@ class Results(ListView):
 
     def get_queryset(self):
         unitTerm = self.request.GET.get('unit', '')
-        queryset = self.get_related_units()
+        goodset = self.get_related_units()
 
 
         count_keywords = {}
         # count_keywords[id] = number of times all keywords show up in unit_desc
-        count_keywords[11] = 14
 
+        #only get the first 15 keywords, keep queries fast
+        units = Units.objects.all()
+
+        num_keywords = 0
         for key in selected_keys.split(','):
-            if key:
-                print(key)
+            if key and num_keywords < 15:
+                num_keywords+=1
 
+                for k in key.split(' '):
+                    num_times_appeared = 0
+
+                    #key is all individual keywords
+                    print(k)
+
+                    #for each keyword, query the database and .count() the number of times
+                    #it appears in each 
+                    for unit in units:
+                        num_times_appeared = 0
+                        # print("Searching in", unit.unit_name, unit.id)
+                        if(unit.unit_desc and unit.id and unit.unit_name):
+                            if(unit.unit_desc.count(k) > 0):
+                                num_times_appeared += unit.unit_desc.count(k)
+
+                            # print(num_times_appeared)
+                            if(count_keywords.get(unit.id)):
+                                count_keywords[unit.id] = count_keywords.get(unit.id) + num_times_appeared
+                            else:
+                                count_keywords[unit.id] = 0 + num_times_appeared
+                        else:
+                            break
+
+
+        ordered_result_list = []
+        #sorting according to values
+        for unit in sorted(count_keywords, key=count_keywords.get, reverse=True):
+            print unit, count_keywords[unit]
+            ordered_result_list.append(unit)
+
+        queryset = units.filter(pk__in=ordered_result_list)
+        return queryset
 
 
         # for p in University.objects.raw("""
