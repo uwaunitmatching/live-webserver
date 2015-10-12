@@ -30,16 +30,16 @@
 
     <div class="col-md-9">
         {# Remember to comment this out later#}
-        <h3>Form Input: {{ object_list.count }} {{university}}  {{unit}}
-        Keywords:
+        <h3>Count:{{ object_list.count }} Form Input: {{university}}  {{unit}}
+        Keywords: {{ unitkeys.keywords }}
         </h3>
         
         {% for unit in units %}
-
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    {{ university }}
+                        {{ unit.uni_id.uni_name }}
+
                     <img align="right" src="{% static 'app/img/aust.png'' %}">
                 </h3>
             </div>

@@ -23,14 +23,25 @@ class Results(ListView):
         unitTerm = self.request.GET.get('unit', '')
         # unitKeywords = Units.objects.filter('')
 
-        queryset = Units.objects.filter(unit_name__icontains=unitTerm)
+        queryset = Units.objects.filter(unit_code__icontains=unitTerm)
         # queryset.orderBy('count')
 
 
-        queryset.select_related('uni_id__uni_name')
-        print(queryset.values('uni_id__uni_name'))
+        keys = {}
 
-        print(queryset)
+
+        for e in queryset:
+            keys[e.id] = e.keywords
+
+
+        keyword_list = keys.values()
+        for key in keyword_list:
+            if key:
+                for k in key.split(","):
+                    print(k)
+
+
+        # print(queryset)
 
         # for p in University.objects.raw("""
         #     SELECT DISTINCT app_units.id, app_university.uni_name 
@@ -43,12 +54,13 @@ class Results(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ListView, self).get_context_data(**kwargs)
-        context['unit'] = self.request.GET.get('unit', '') 
+        unitTerm = self.request.GET.get('unit', '')
+        context['unit'] = unitTerm
         context['university'] = self.request.GET.get('university', '') 
         context['request'] = self.request
+        context['unitkeys'] = Units.objects.filter(unit_code=unitTerm)
+        
 
-
-        context['university_name'] = "UNI_NAME"
         return context
 
 def base(request):
