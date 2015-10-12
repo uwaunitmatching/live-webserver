@@ -20,16 +20,16 @@ class Results(ListView):
     unit_found = None
     selected_keys = ""
 
-    def get_related_units(self):
+    def get_correct_unit(self):
         unitTerm = self.request.GET.get('unit', '')
         univ_input = self.request.GET.get('university', '')
 
         try:
             univ = University.objects.extra(where=["%s LIKE uni_name"], params=[univ_input])
             selected_uni_id = univ[0].id
-            print(selected_uni_id)
+            # print(selected_uni_id)
             selected_uni_name = univ[0].uni_name
-            print(selected_uni_name)
+            # print(selected_uni_name)
         except IndexError:
             raise Http404("Sorry! University Not found. Please refine your search")
 
@@ -43,13 +43,13 @@ class Results(ListView):
         except IndexError:
             raise Http404("Sorry! Your unit could not be found. Please refine your search")
 
-        print(selected_unit_name)
+        # print(selected_unit_name)
         return choose
 
 
     def get_queryset(self):
         unitTerm = self.request.GET.get('unit', '')
-        goodset = self.get_related_units()
+        goodset = self.get_correct_unit()
 
 
         count_keywords = {}
