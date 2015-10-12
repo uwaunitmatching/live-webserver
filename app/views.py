@@ -59,32 +59,33 @@ class Results(ListView):
         units = Units.objects.all()
 
         num_keywords = 0
-        for key in selected_keys.split(','):
-            if key and num_keywords < 15:
-                num_keywords+=1
+        if selected_keys and selected_keys.split(','):
+            for key in selected_keys.split(','):
+                if key and num_keywords < 15:
+                    num_keywords+=1
 
-                for k in key.split(' '):
-                    num_times_appeared = 0
-
-                    #key is all individual keywords
-                    # print(k)
-
-                    #for each keyword, query the database and .count() the number of times
-                    #it appears in each 
-                    for unit in units:
+                    for k in key.split(' '):
                         num_times_appeared = 0
-                        # print("Searching in", unit.unit_name, unit.id)
-                        if(unit.unit_desc and unit.id and unit.unit_name):
-                            if(unit.unit_desc.count(k) > 0):
-                                num_times_appeared += unit.unit_desc.count(k)
 
-                            # print(num_times_appeared)
-                            if(count_keywords.get(unit.id)):
-                                count_keywords[unit.id] = count_keywords.get(unit.id) + num_times_appeared
+                        #key is all individual keywords
+                        # print(k)
+
+                        #for each keyword, query the database and .count() the number of times
+                        #it appears in each 
+                        for unit in units:
+                            num_times_appeared = 0
+                            # print("Searching in", unit.unit_name, unit.id)
+                            if(unit.unit_desc and unit.id and unit.unit_name):
+                                if(unit.unit_desc.count(k) > 0):
+                                    num_times_appeared += unit.unit_desc.count(k)
+
+                                # print(num_times_appeared)
+                                if(count_keywords.get(unit.id)):
+                                    count_keywords[unit.id] = count_keywords.get(unit.id) + num_times_appeared
+                                else:
+                                    count_keywords[unit.id] = 0 + num_times_appeared
                             else:
-                                count_keywords[unit.id] = 0 + num_times_appeared
-                        else:
-                            break
+                                break
 
 
         ordered_result_list = []
