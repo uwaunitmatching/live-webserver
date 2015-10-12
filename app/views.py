@@ -67,7 +67,7 @@ class Results(ListView):
                     num_times_appeared = 0
 
                     #key is all individual keywords
-                    print(k)
+                    # print(k)
 
                     #for each keyword, query the database and .count() the number of times
                     #it appears in each 
@@ -90,7 +90,7 @@ class Results(ListView):
         ordered_result_list = []
         #sorting according to values
         for unit in sorted(count_keywords, key=count_keywords.get, reverse=True):
-            print unit, count_keywords[unit]
+            # print unit, count_keywords[unit]
             ordered_result_list.append(unit)
 
         queryset = units.filter(pk__in=ordered_result_list)
