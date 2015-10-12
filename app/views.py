@@ -1,4 +1,4 @@
-﻿from django.shortcuts import render, render_to_response, RequestContext
+﻿from django.shortcuts import render, render_to_response, RequestContext, redirect
 from django.http import HttpRequest, HttpResponse, Http404
 from django.template import Context, loader, RequestContext, Library, Node, TemplateSyntaxError
 from django.views.generic import ListView, DetailView
@@ -61,7 +61,7 @@ class Results(ListView):
         num_keywords = 0
         if selected_keys and selected_keys.split(','):
             for key in selected_keys.split(','):
-                if key and num_keywords < 15:
+                if key and num_keywords < 20:
                     num_keywords+=1
 
                     for k in key.split(' '):
@@ -95,7 +95,6 @@ class Results(ListView):
             ordered_result_list.append(unit)
 
         queryset = units.filter(pk__in=ordered_result_list)
-        return queryset
 
 
         # for p in University.objects.raw("""
@@ -116,9 +115,7 @@ class Results(ListView):
         context['university'] = univ_input
         context['request'] = self.request
 
-
         context['keys_list'] = selected_keys
-        
 
         return context
 

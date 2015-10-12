@@ -21,7 +21,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', my_homepage_view),
+    url(r'^$', my_homepage_view, name="my_home"),
     url(r'^admin', include(admin.site.urls)),
     url(r'^index', my_homepage_view),
     url(r'^search', search),
