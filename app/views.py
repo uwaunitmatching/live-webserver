@@ -37,22 +37,27 @@ class Results(ListView):
             unit_found = True
         else:
             selected_unit_name = "Sorry! Could not find your Unit"
-            global selected_keys
             selected_keys = "Sorry! Keywords could not be found, Please refine your search"
             unit_found = None
 
         print(selected_unit_name)
+        return choose
 
 
     def get_queryset(self):
-        self.get_related_units()
+        unitTerm = self.request.GET.get('unit', '')
+        queryset = self.get_related_units()
+
+
+        count_keywords = {}
+        # count_keywords[id] = number of times all keywords show up in unit_desc
+        count_keywords[11] = 14
 
         for key in selected_keys.split(','):
             if key:
                 print(key)
 
-        queryset.Units
-        # print(queryset)
+
 
         # for p in University.objects.raw("""
         #     SELECT DISTINCT app_units.id, app_university.uni_name 
@@ -64,10 +69,11 @@ class Results(ListView):
         return queryset
 
     def get_context_data(self, **kwargs):
-        context = super(ListView, self).get_context_data(**kwargs)
         unitTerm = self.request.GET.get('unit', '')
-        context['unit'] = unitTerm
         univ_input = self.request.GET.get('university', '')
+
+        context = super(ListView, self).get_context_data(**kwargs)
+        context['unit'] = unitTerm
         context['university'] = univ_input
         context['request'] = self.request
 
