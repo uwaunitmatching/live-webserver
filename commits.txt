@@ -1,0 +1,385 @@
+commit c6657ddf9b4ad70b35b892df58890cfd37099782
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Mon Oct 12 12:19:51 2015 +0800
+
+    Clear filter Links to front page
+
+commit d02c802d4817b0da13c5755eed4afbf047b2016d
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Mon Oct 12 11:17:04 2015 +0800
+
+    University names are now displayed :)))))
+    
+    Only took me 5 billion years,
+
+commit daa48277a1e5773a6b9c3772dd56dab5b21e37f2
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Sun Oct 11 13:27:58 2015 +0800
+
+    Now correctly prints out Uni_names to screen
+
+commit 96799e282547935a794dd25f771922904528e146
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Sun Oct 11 12:13:01 2015 +0800
+
+    Now it links to the right ones
+
+commit f4e4a6ccbb1c6463f1b53bb0de98e780c878afa7
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Sun Oct 11 12:11:23 2015 +0800
+
+    both clear filters and new search link to front page
+
+commit 64803c31e7564eb7fbfb092380522dd29b23637b
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Sun Oct 11 01:19:14 2015 +0800
+
+    Tried using raw SQL to join the two tables to get University name
+
+commit 841fbf87bba0f99ca77a8a21b6ca396f2e2f7067
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Sat Oct 10 16:48:44 2015 +0800
+
+    database bug 'column in field list' bug fixed
+
+commit 22805ccd8bfe3c8c51b8137bc3c4d270ca03fe4a
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Sat Oct 10 01:02:17 2015 +0800
+
+    changed uni_id in app_units to a foreign key to join the two tables
+    
+    This is so we can display the name of the university at the top
+
+commit 0803b205956203a9af1e56cddde1d319fed149dd
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Tue Oct 6 17:54:53 2015 +0800
+
+    Read more now redirects user to Unit outline website
+
+commit 337f7b9f66e60627d5f6786048528e0587d67438
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Tue Oct 6 17:09:29 2015 +0800
+
+    Started continuing query sets to get similarity
+
+commit df4efc0fc92c50717aaf87a8a056c77ed6f79dd4
+Author: Henry Chen <henryc234@gmail.com>
+Date:   Tue Oct 6 16:19:19 2015 +0800
+
+    completed a simple similarity checker in python, now to use queries in django
+
+commit aea5a9e314cfd96a61782a24df8d7493cd2ad93f
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Tue Oct 6 14:08:55 2015 +0800
+
+    Added simple similarity checking
+    
+    test-similarity.py
+
+commit 9fddae76ebb5e56abaf9bd51da580f8381e3b9bd
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sat Oct 3 14:17:36 2015 +0800
+
+    Implemented pagination
+    
+    Pagination now works.
+    Results displaying well cleaner as well
+
+commit 7032fdce7cb59a927c496d438f576912e46c981f
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Oct 2 15:29:23 2015 +0800
+
+    Web update
+    
+    Results now display.
+    Search box now works and results are based off the search
+
+commit 19b7661ab30017f4563f5da3a5b7ea4dabf6c18f
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Thu Oct 1 20:37:38 2015 +0800
+
+    Large update
+    
+    Enabled and customised admin panel.
+    setup django form. Processing of form still not complete
+
+commit f3f40cdf1fcea634f99f2ba0ede2513803d629ad
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Thu Oct 1 16:30:35 2015 +0800
+
+    Redirect login to the admin panel
+    
+    Login button now takes you to the admin panel
+
+commit 1f49f2db8e213fbffde9aebcc951b45cf6abe7d4
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 13:59:46 2015 +0800
+
+    Enabling and customising admin panel
+    
+    Added ability to manage units and universities.
+
+commit 3b94060c115fb81031e8897f9a34aa021767383a
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 12:20:19 2015 +0800
+
+    update URL's
+    
+    allow /index
+    enable admin URL's
+
+commit b5cdcfe56ffe6badd7008513ef9922d72e02d8aa
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 12:14:30 2015 +0800
+
+    Cannot use mysql-python
+    
+    Old module, replaced with mysqlclient.
+
+commit 6ad0f63f5cedfecfa08e0820aed9598a4cfbe743
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 12:03:33 2015 +0800
+
+    Still trying to get correct requirements
+
+commit d2db52f4c5d921279be0fab790c27198dc3c3856
+Author: uwaunitmatching <uwaunitmatching@users.noreply.github.com>
+Date:   Wed Sep 30 11:58:22 2015 +0800
+
+    Delete settings.py
+
+commit 6e145ef754744a7dbaa63a931d7be4c4fa43dd24
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 11:56:43 2015 +0800
+
+    Correcting the mysql requirements
+    
+    correct version for python 3+
+
+commit ab0e0c95c4bde33cd8e69998dafa02cb11748b67
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 11:52:17 2015 +0800
+
+    new version
+
+commit 0f3aab325cc8f9b8ea2a363c92aefd3e3a34a87d
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 11:41:15 2015 +0800
+
+    Updated requirements
+    
+    Added mysql-python requirement
+
+commit e29f5e798713b0e8e3df6c25d65b503437956717
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 11:40:33 2015 +0800
+
+    gitignore update
+    
+    exclude settings.py
+
+commit 45ce000d81417985851028ed9cd4f684960101e4
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 11:13:44 2015 +0800
+
+    Fixed syntax bug
+
+commit 63854702ca9eb74c969d184b1b6745b6ef2b2a5a
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 10:59:36 2015 +0800
+
+    Reverting back to latest version
+
+commit e13adebdc2b6cde1487a1cc841720ee4d04f39f4
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Wed Sep 30 10:25:20 2015 +0800
+
+    Reverting to Henry 22-9-15 'created models classes'
+
+commit 5b510968aca48b2a53e3bd2fb52d93b38d48a235
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Thu Sep 24 16:26:27 2015 +0800
+
+    Making sure this is last commit
+    
+    (for consistency)
+
+commit b5150a6b4eafd333a2c81e6e95d6584f08fcc1f6
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Thu Sep 24 15:35:28 2015 +0800
+
+    Almost done templating ONE of many results.
+    
+    -Still have to write for loop to display results-pane for EACH RESULT
+
+commit 567c1ece74e64c581489df72f8fe183aa96c56ab
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Thu Sep 24 13:53:07 2015 +0800
+
+    added my_homepage_view function so the index page is now the webpage
+
+commit 615aa1930a11cbf48d735e07aee6cd5ab1e0ceeb
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Thu Sep 24 12:30:45 2015 +0800
+
+    Search button, main button (top left) and a lot of other buttons now work, hooked up database and should be synced correctly
+
+commit 5aef1dcfd60e29a958e86c6a3e5d047a37f4a58b
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Tue Sep 22 09:59:56 2015 +0800
+
+    Created models classes
+    
+    Models classes
+    - Units (stores the units info)
+    - Universities (stores university info)
+    - Keywords (stores keywords)
+
+commit 0f1a5359aa24352737a5c7ab07f3dedac3342db9
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Mon Sep 21 18:42:16 2015 +0800
+
+    put carets in the dropdown sidebar menus for "university" etc
+
+commit efd6781e8b2500a6bb40fd1b257247dc628bdfb6
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Mon Sep 21 18:29:09 2015 +0800
+
+    fixed some minor css issues, made sidebar look a bit better
+    
+    -Clicking the top left logo now works
+
+commit 4493e5d6e8144d11da0034fce62105679eae8159
+Author: Henry Chen <henryc345@gmail.com>
+Date:   Mon Sep 21 17:56:13 2015 +0800
+
+    Fixed bugs, read description
+    
+    - Fixed css not showing up
+    - renamed folder ‘content’ into ‘css’
+    - A lot of settings.py changes
+    - fixed static folder location ‘root/app/static/…’
+
+commit c9983161a42b3da9d3fa4ba232967dacfb8e1418
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sun Sep 20 15:05:19 2015 +0800
+
+    Debugging page loading error
+
+commit 3b788293cbee7fe12e271d604e400b27860355be
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sun Sep 20 10:54:55 2015 +0800
+
+    Added admin account
+
+commit d473345f57d456db8b4b607623ecf7ac9a868f31
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sun Sep 20 09:41:32 2015 +0800
+
+    Updating admin console connection
+
+commit ad5ee314f52fbe7a5ca05a2c8f67ff6c45a95a1b
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sun Sep 20 09:32:48 2015 +0800
+
+    Enabling admin console
+
+commit 7aae3d70b8c51cb7a46a1fa6a3b60539edf0deac
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sat Sep 19 15:57:29 2015 +0800
+
+    CSS update
+    
+    Applying updated stylesheet
+
+commit 8f6ef6e559c7160f5051de770c95da887deb467f
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Sat Sep 19 15:55:09 2015 +0800
+
+    updated references
+
+commit 7858197cdf0bda8c8eedbbcad0a7d7a771fcf030
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 14:10:21 2015 +0800
+
+    Revert "Updated database connection details"
+    
+    This reverts commit a703166a36fc426453f3e59c9867d484daaadf98.
+
+commit cbf2afacb4d1098ff7dcc12fcb4428d8f8b98852
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 14:03:03 2015 +0800
+
+    static path
+
+commit ccc0d0651b772595170d2e4856ce43a662b7cd30
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 14:02:18 2015 +0800
+
+    static path
+
+commit 3ad68aa46455a3127b660471860e5307468f51b3
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 14:01:10 2015 +0800
+
+    static path
+
+commit efd21dc989b7dfb90b6630703f3bafe9cfa63bc3
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:59:26 2015 +0800
+
+    Static files path
+
+commit fd7b32fc1859fe167a70d0cd2dc9d11469f55bdf
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:53:52 2015 +0800
+
+    updating static files path
+
+commit a703166a36fc426453f3e59c9867d484daaadf98
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:48:13 2015 +0800
+
+    Updated database connection details
+
+commit 4d5c43c329c8f88e28312efe4f9e946ffd17c5e6
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:31:12 2015 +0800
+
+    Updating header
+
+commit ea854d0f598de9c9c29bb9f5bb717e9b42a1d3c0
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:27:05 2015 +0800
+
+    Uploading stylesheets
+    
+    Stylesheets from Henry's mockups
+
+commit 70728103d0458834f139373e550029e86030a0e9
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:20:37 2015 +0800
+
+    Re upload to server
+
+commit 39b7cdd42fbffc3d5f7973b0d95e4975c4f51b07
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:18:36 2015 +0800
+
+    Sorting out syncing issues
+
+commit e2e1bd58d51202f045d06e23eb5aa0a219302e61
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Fri Sep 11 13:16:17 2015 +0800
+
+    Initial changes
+    
+    Learning Django
+
+commit 272ca95a87608d8e9fb19fcf87b25b39295e0ba8
+Author: uwaunitmatching@gmail.com <cits32002015>
+Date:   Thu Sep 10 14:00:10 2015 +0800
+
+    Initial Push
+    
+    Django initial upload

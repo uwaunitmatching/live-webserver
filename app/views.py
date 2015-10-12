@@ -17,30 +17,41 @@ class Results(ListView):
     context_object_name = 'units'
     paginate_by = 10
 
+    unit_found = None
+    selected_keys = ""
+
+    def get_related_units(self):
+        unitTerm = self.request.GET.get('unit', '')
+        univ_input = self.request.GET.get('university', '')
+        univ = University.objects.extra(where=["%s LIKE uni_name"], params=[univ_input])
+        selected_uni_id = univ[0].id
+        print(selected_uni_id)
+        selected_uni_name = univ[0].uni_name
+        print(selected_uni_name)
+
+        choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
+        if choose[0].unit_name and choose[0].keywords:
+            selected_unit_name = choose[0].unit_name
+            global selected_keys
+            selected_keys = choose[0].keywords
+            unit_found = True
+        else:
+            selected_unit_name = "Sorry! Could not find your Unit"
+            global selected_keys
+            selected_keys = "Sorry! Keywords could not be found, Please refine your search"
+            unit_found = None
+
+        print(selected_unit_name)
+
 
     def get_queryset(self):
+        self.get_related_units()
 
-        unitTerm = self.request.GET.get('unit', '')
-        # unitKeywords = Units.objects.filter('')
-
-        queryset = Units.objects.filter(unit_code__icontains=unitTerm)
-        # queryset.orderBy('count')
-
-
-        keys = {}
-
-
-        for e in queryset:
-            keys[e.id] = e.keywords
-
-
-        keyword_list = keys.values()
-        for key in keyword_list:
+        for key in selected_keys.split(','):
             if key:
-                for k in key.split(","):
-                    print(k)
+                print(key)
 
-
+        queryset.Units
         # print(queryset)
 
         # for p in University.objects.raw("""
@@ -56,9 +67,12 @@ class Results(ListView):
         context = super(ListView, self).get_context_data(**kwargs)
         unitTerm = self.request.GET.get('unit', '')
         context['unit'] = unitTerm
-        context['university'] = self.request.GET.get('university', '') 
+        univ_input = self.request.GET.get('university', '')
+        context['university'] = univ_input
         context['request'] = self.request
-        context['unitkeys'] = Units.objects.filter(unit_code=unitTerm)
+
+
+        context['keys_list'] = selected_keys
         
 
         return context
