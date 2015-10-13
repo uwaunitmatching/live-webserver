@@ -8,22 +8,6 @@
 <div id="searchContainer" class="container">
     <!-- left hand side -->
     <div class="col-md-3">
-        <div style="text-align:center;">
-            <p><b>Advanced Filtering Options</b></p>
-        </div>
-        <ul id="sidebar" class="list-group">
-            <a href="#"><li class="list-group-item">Languages<span class="caret"></span></li></a>
-            <a href="#"><li class="list-group-item">Keywords<span class="caret"></span></li></a>
-            <a href="#"><li class="list-group-item">University<span class="caret"></span></li></a>
-            <a href="#"><li class="list-group-item">Region<span class="caret"></span></li></a>
-            <a href="#"><li class="list-group-item">Times Offered<span class="caret"></span></li></a>
-        </ul>
-        <div id="inline-filter">
-            <p>
-                <a href="/index">New Search</a>
-                | <a href="/index">Clear Filter</a>
-            </p>
-        </div>
         <div>
             {# Remember to comment this out later#}
             <h2>Search Criteria: </h2>
@@ -31,6 +15,19 @@
             <h4>Unit Name: </h4><h5>{{unit}}</h5>
             {# <h4>Keywords: </h4><h5>{{ keys_list }}</h5> #}
         </div>
+        <div style="text-align:center;">
+            <p><b>Filtering Options</b></p>
+        </div>
+        <ul id="sidebar" class="list-group">
+            <a href="#"><li class="list-group-item">Keywords<span class="caret"></span></li></a>
+        </ul>
+        <div id="inline-filter">
+            <p>
+                <a href="/index">New Search</a>
+                | <a href="/index">Clear Filter</a>
+            </p>
+        </div>
+
 
 
     </div> <!-- col3 -->

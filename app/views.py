@@ -20,8 +20,7 @@ class Results(ListView):
     unit_found = None
     selected_keys = ""
 
-    def get_correct_unit(self):
-        unitTerm = self.request.GET.get('unit', '')
+    def get_correct_uni(self):
         univ_input = self.request.GET.get('university', '')
 
         try:
@@ -31,7 +30,15 @@ class Results(ListView):
             selected_uni_name = univ[0].uni_name
             # print(selected_uni_name)
         except IndexError:
+            selected_uni_id = 1
             raise Http404("Sorry! University Not found. Please refine your search")
+
+        return selected_uni_id
+
+
+    def get_correct_unit(self):
+        unitTerm = self.request.GET.get('unit', '')
+        
 
         
         try:
@@ -94,7 +101,12 @@ class Results(ListView):
             # print unit, count_keywords[unit]
             ordered_result_list.append(unit)
 
-        queryset = units.filter(pk__in=ordered_result_list)
+
+        #getting university ids for 
+        chosen_uni_id = self.get_correct_uni()
+        print(chosen_uni_id)
+
+        queryset = units.filter(pk__in=ordered_result_list).exclude(uni_id=chosen_uni_id)
 
 
         # for p in University.objects.raw("""
