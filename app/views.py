@@ -68,7 +68,7 @@ class Results(ListView):
         num_keywords = 0
         if selected_keys and selected_keys.split(','):
             for key in selected_keys.split(','):
-                if key and num_keywords < 20:
+                if key and num_keywords < 30:
                     num_keywords+=1
 
                     for k in key.split(' '):
