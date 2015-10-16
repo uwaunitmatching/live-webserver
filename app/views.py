@@ -69,6 +69,11 @@ class Results(ListView):
         units = Units.objects.all()
 
         num_keywords = 0
+
+        if selected_keys.split(','):
+            pass
+        else:
+            selected_keys = "keywords"
         if selected_keys and selected_keys.split(','):
             for key in selected_keys.split(','):
                 if key and num_keywords < 30:
@@ -130,7 +135,7 @@ class Results(ListView):
         context['unit'] = unitTerm
         context['university'] = univ_input
         context['request'] = self.request
-        global selected_keys
+
         context['keys_list'] = selected_keys
 
         return context
