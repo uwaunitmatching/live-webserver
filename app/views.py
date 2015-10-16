@@ -34,14 +34,13 @@ class Results(ListView):
         except IndexError:
             # raise Http404("Sorry! University Not found. Please refine your search")
             pass:
+            selected_uni_id = 181
 
         return selected_uni_id
 
 
     def get_correct_unit(self):
         unitTerm = self.request.GET.get('unit', '')
-        
-
         
         try:
             choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
@@ -50,6 +49,7 @@ class Results(ListView):
             selected_keys = choose[0].keywords
             unit_found = True
         except IndexError:
+            selected_unit_name = "CITS3200"
             # raise Http404("Sorry! Your unit could not be found. Please refine your search")
             pass:
 
