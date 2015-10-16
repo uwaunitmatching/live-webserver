@@ -18,7 +18,7 @@ class Results(ListView):
     paginate_by = 10
 
     unit_found = None
-    selected_keys = "keyword"
+    selected_keys = "keywords, here"
     selected_uni_id = 1
 
 
