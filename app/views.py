@@ -33,7 +33,7 @@ class Results(ListView):
             # print(selected_uni_name)
         except IndexError:
             # raise Http404("Sorry! University Not found. Please refine your search")
-            pass:
+            pass
             selected_uni_id = 181
 
         return selected_uni_id
@@ -51,7 +51,7 @@ class Results(ListView):
         except IndexError:
             selected_unit_name = "CITS3200"
             # raise Http404("Sorry! Your unit could not be found. Please refine your search")
-            pass:
+            pass
 
         # print(selected_unit_name)
         return choose
