@@ -130,6 +130,7 @@ class Results(ListView):
         context['unit'] = unitTerm
         context['university'] = univ_input
         context['request'] = self.request
+        global selected_keys
         context['keys_list'] = selected_keys
 
         return context
