@@ -70,10 +70,7 @@ class Results(ListView):
 
         num_keywords = 0
 
-        if selected_keys.split(','):
-            pass
-        else:
-            selected_keys = "keywords"
+        global selected_keys
         if selected_keys and selected_keys.split(','):
             for key in selected_keys.split(','):
                 if key and num_keywords < 30:
