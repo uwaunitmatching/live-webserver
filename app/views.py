@@ -106,7 +106,8 @@ class Results(ListView):
         chosen_uni_id = self.get_correct_uni()
         print(chosen_uni_id)
 
-        queryset = units.filter(pk__in=ordered_result_list).exclude(uni_id=chosen_uni_id)
+        queryset = units.filter(pk__in=ordered_result_list)
+        # .exclude(uni_id=chosen_uni_id)
 
 
         # for p in University.objects.raw("""
