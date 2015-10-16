@@ -23,14 +23,11 @@ class Results(ListView):
     def get_correct_uni(self):
         univ_input = self.request.GET.get('university', '')
 
-        try:
-            univ = University.objects.extra(where=["%s LIKE uni_name"], params=[univ_input])
-            selected_uni_id = univ[0].id
-            # print(selected_uni_id)
-            selected_uni_name = univ[0].uni_name
+        univ = University.objects.extra(where=["%s LIKE uni_name"], params=[univ_input])
+        selected_uni_id = univ[0].id
+        # print(selected_uni_id)
+        selected_uni_name = univ[0].uni_name
             # print(selected_uni_name)
-        except IndexError:
-            selected_uni_id = 1
             # raise Http404("Sorry! University Not found. Please refine your search")
 
         return selected_uni_id
@@ -39,14 +36,11 @@ class Results(ListView):
     def get_correct_unit(self):
         unitTerm = self.request.GET.get('unit', '')
         
-
-        
-        try:
-            choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
-            selected_unit_name = choose[0].unit_name
-            global selected_keys
-            selected_keys = choose[0].keywords
-            unit_found = True
+        choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
+        selected_unit_name = choose[0].unit_name
+        global selected_keys
+        selected_keys = choose[0].keywords
+        unit_found = True
         # except IndexError:
             # raise Http404("Sorry! Your unit could not be found. Please refine your search")
 
