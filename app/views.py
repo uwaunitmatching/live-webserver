@@ -18,9 +18,7 @@ class Results(ListView):
     paginate_by = 10
 
     unit_found = None
-    selected_keys = "keywords, here"
-    selected_uni_id = 1
-
+    selected_keys = ""
 
     def get_correct_uni(self):
         univ_input = self.request.GET.get('university', '')
@@ -32,15 +30,16 @@ class Results(ListView):
             selected_uni_name = univ[0].uni_name
             # print(selected_uni_name)
         except IndexError:
-            # raise Http404("Sorry! University Not found. Please refine your search")
-            pass
-            selected_uni_id = 181
+            selected_uni_id = 1
+            raise Http404("Sorry! University Not found. Please refine your search")
 
         return selected_uni_id
 
 
     def get_correct_unit(self):
         unitTerm = self.request.GET.get('unit', '')
+        
+
         
         try:
             choose = Units.objects.all().extra(where=["%s LIKE unit_code"], params=[unitTerm])
@@ -49,9 +48,7 @@ class Results(ListView):
             selected_keys = choose[0].keywords
             unit_found = True
         except IndexError:
-            selected_unit_name = "CITS3200"
-            # raise Http404("Sorry! Your unit could not be found. Please refine your search")
-            pass
+            raise Http404("Sorry! Your unit could not be found. Please refine your search")
 
         # print(selected_unit_name)
         return choose
@@ -69,8 +66,6 @@ class Results(ListView):
         units = Units.objects.all()
 
         num_keywords = 0
-
-        global selected_keys
         if selected_keys and selected_keys.split(','):
             for key in selected_keys.split(','):
                 if key and num_keywords < 30:
