@@ -31,7 +31,7 @@ class Results(ListView):
             # print(selected_uni_name)
         except IndexError:
             selected_uni_id = 1
-            raise Http404("Sorry! University Not found. Please refine your search")
+            # raise Http404("Sorry! University Not found. Please refine your search")
 
         return selected_uni_id
 
@@ -48,7 +48,7 @@ class Results(ListView):
             selected_keys = choose[0].keywords
             unit_found = True
         except IndexError:
-            raise Http404("Sorry! Your unit could not be found. Please refine your search")
+            # raise Http404("Sorry! Your unit could not be found. Please refine your search")
 
         # print(selected_unit_name)
         return choose
