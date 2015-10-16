@@ -18,7 +18,9 @@ class Results(ListView):
     paginate_by = 10
 
     unit_found = None
-    selected_keys = ""
+    selected_keys = "keyword"
+    selected_uni_id = 1
+
 
     def get_correct_uni(self):
         univ_input = self.request.GET.get('university', '')
@@ -30,7 +32,6 @@ class Results(ListView):
             selected_uni_name = univ[0].uni_name
             # print(selected_uni_name)
         except IndexError:
-            selected_uni_id = 1
             # raise Http404("Sorry! University Not found. Please refine your search")
             pass:
 
@@ -129,7 +130,6 @@ class Results(ListView):
         context['unit'] = unitTerm
         context['university'] = univ_input
         context['request'] = self.request
-
         context['keys_list'] = selected_keys
 
         return context
