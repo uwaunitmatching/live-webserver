@@ -25,7 +25,6 @@ urlpatterns = patterns('',
     url(r'^admin', include(admin.site.urls)),
     url(r'^index', my_homepage_view),
     url(r'^search', search),
-
     url(r'^results', Results.as_view()),
 
 

@@ -47,7 +47,7 @@ class Results(ListView):
             global selected_keys
             selected_keys = choose[0].keywords
             unit_found = True
-        except IndexError:
+        # except IndexError:
             # raise Http404("Sorry! Your unit could not be found. Please refine your search")
 
         # print(selected_unit_name)
